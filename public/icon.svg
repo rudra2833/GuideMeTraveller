@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8F1"/>
+      <stop offset="100%" stop-color="#FCEEE3"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1F3436" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  
+  <!-- Rounded Journal Icon Base -->
+  <rect width="512" height="512" rx="128" fill="url(#bg)"/>
+  
+  <!-- Subtle Organic Blob -->
+  <path d="M 120 180 C 140 100, 360 90, 400 190 C 440 290, 380 410, 260 410 C 150 410, 100 320, 120 180 Z" fill="#EFA7A0" opacity="0.25"/>
+  <path d="M 280 260 C 330 200, 420 220, 430 300 C 440 370, 340 430, 260 420 C 200 410, 240 310, 280 260 Z" fill="#91AAA2" opacity="0.2"/>
+
+  <!-- Travel Pin / Notebook Symbol -->
+  <g filter="url(#shadow)" transform="translate(146, 110)">
+    <!-- Pin Body -->
+    <path d="M 110 0 C 49.2 0 0 49.2 0 110 C 0 188 110 280 110 280 C 110 280 220 188 220 110 C 220 49.2 170.8 0 110 0 Z" fill="#EFA7A0"/>
+    <!-- Inner Heart / Compass cutout -->
+    <circle cx="110" cy="110" r="54" fill="#FFF8F1"/>
+    <!-- Tiny Airplane silhouette in center -->
+    <path d="M 110 82 L 118 106 L 140 112 L 118 118 L 115 136 L 110 126 L 105 136 L 102 118 L 80 112 L 102 106 Z" fill="#1F3436"/>
+  </g>
+  
+  <!-- Scrapbook decorative stars & dashes -->
+  <circle cx="95" cy="130" r="8" fill="#557B76"/>
+  <circle cx="410" cy="120" r="6" fill="#EFA7A0"/>
+  <circle cx="395" cy="380" r="10" fill="#91AAA2"/>
+  <path d="M 100 390 Q 140 370 180 395" stroke="#1F3436" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="6,8"/>
+  <text x="256" y="450" font-family="'DM Serif Display', Georgia, serif" font-size="34" font-weight="bold" fill="#1F3436" text-anchor="middle" letter-spacing="2">guideMe</text>
+</svg>

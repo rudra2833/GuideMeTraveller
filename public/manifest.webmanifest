@@ -1,0 +1,17 @@
+{
+  "name": "guideMeTraveller — Our Little Asia Adventure",
+  "short_name": "guideMe",
+  "description": "Personal family travel planner for Hong Kong, Shenzhen, and Macau.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8F1",
+  "theme_color": "#FFF8F1",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
