@@ -7,13 +7,29 @@ import { calculateDistanceKm, getEstimatedTravel, getGoogleMapsDirectionsUrl } f
 
 export default function RestaurantCard({ restaurant, activeHotel, isFavorite, onToggleFavorite }) {
   // Distance from active hotel
-  const distKm = calculateDistanceKm(
-    activeHotel?.lat,
-    activeHotel?.lng,
-    restaurant?.lat,
-    restaurant?.lng
-  );
-  const estimate = getEstimatedTravel(distKm);
+  const activeHotelKey = activeHotel?.key;
+  const precomputed = restaurant?.hotelDistances?.[activeHotelKey];
+
+  let distKm = 0;
+  let estimate;
+
+  if (precomputed && (precomputed.dist === "0 m" || precomputed.time?.toLowerCase().includes("inside hotel"))) {
+    distKm = 0;
+    estimate = {
+      distStr: '0 m',
+      timeStr: 'Inside hotel',
+      primaryTransport: '🏨 In your hotel'
+    };
+  } else {
+    distKm = calculateDistanceKm(
+      activeHotel?.lat,
+      activeHotel?.lng,
+      restaurant?.lat,
+      restaurant?.lng
+    );
+    estimate = getEstimatedTravel(distKm);
+  }
+
 
   const mapsUrl = activeHotel
     ? getGoogleMapsDirectionsUrl(

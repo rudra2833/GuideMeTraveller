@@ -414,7 +414,8 @@ export const CITIES = {
         whyWePicked: "Relaxed dining inside Four Points serving comfort food, Asian noodle bowls, and fresh breakfast.",
         travellerTip: "Quickest choice on arrival evening or after returning late from Disneyland."
       }
-    ]
+    ],
+    addsOn: []
   },
 
   shenzhen: {
@@ -712,7 +713,8 @@ export const CITIES = {
         whyWePicked: "Spacious fine dining with private booths, perfect for a peaceful family dinner inside Century Kingdom.",
         travellerTip: "Ask for the vegetarian set menu or custom stir-fried seasonal greens with garlic-free mushroom sauce."
       }
-    ]
+    ],
+    addsOn: []
   },
 
   macau: {
@@ -1031,7 +1033,8 @@ export const CITIES = {
         whyWePicked: "Charming independent cafe famous for welcoming hospitality, vegetarian wraps, and iced teas near St. Anthony Church.",
         travellerTip: "Quiet oasis to rest your feet away from the bustling crowds of St. Paul's."
       }
-    ]
+    ],
+    addsOn: []
   }
 };
 
