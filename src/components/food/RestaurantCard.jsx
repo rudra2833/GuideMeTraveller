@@ -90,13 +90,32 @@ export default function RestaurantCard({ restaurant, activeHotel, isFavorite, on
         />
       </div>
 
-      {/* Vegetarian & Jain Status */}
+      {/* Vegetarian & Jain Status & Avg Cost */}
       <div style={{
         display: 'flex',
         flexWrap: 'wrap',
         gap: '6px',
-        margin: '8px 0 10px'
+        margin: '8px 0 10px',
+        alignItems: 'center'
       }}>
+        {restaurant.avgCostPerPerson && (
+          <span style={{
+            fontSize: '0.78rem',
+            fontWeight: 800,
+            color: '#15803D',
+            backgroundColor: '#DCFCE7',
+            border: '1px solid #86EFAC',
+            padding: '3px 10px',
+            borderRadius: 'var(--radius-pill)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            boxShadow: '0 1px 3px rgba(21, 128, 61, 0.08)'
+          }}>
+            💰 Avg: {restaurant.avgCostPerPerson} / person
+          </span>
+        )}
+
         <span style={{
           fontSize: '0.74rem',
           fontWeight: 700,
@@ -132,6 +151,82 @@ export default function RestaurantCard({ restaurant, activeHotel, isFavorite, on
         }}>
           <strong style={{ color: 'var(--color-navy)' }}>Why we picked it: </strong>
           {restaurant.whyWePicked}
+        </div>
+      )}
+
+      {/* Signature Must-Try Dish Spotlight */}
+      {restaurant.mustTryDish && (
+        <div style={{
+          display: 'flex',
+          gap: '12px',
+          backgroundColor: '#FFFBF5',
+          border: '1px solid #F1E5D5',
+          borderRadius: 'var(--radius-sm)',
+          padding: '12px',
+          margin: '12px 0',
+          alignItems: 'center',
+          boxShadow: '0 2px 8px rgba(181, 103, 13, 0.06)'
+        }}>
+          <img
+            src={restaurant.mustTryDish.image}
+            alt={restaurant.mustTryDish.name}
+            loading="lazy"
+            style={{
+              width: '74px',
+              height: '74px',
+              borderRadius: 'var(--radius-xs)',
+              objectFit: 'cover',
+              flexShrink: 0,
+              border: '1px solid var(--color-border)'
+            }}
+            onError={(e) => {
+              e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';
+            }}
+          />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '4px', marginBottom: '2px' }}>
+              <span style={{
+                fontSize: '0.68rem',
+                fontWeight: 800,
+                color: 'var(--color-coral-dark)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
+                ★ MUST-TRY DISH
+              </span>
+              <span style={{
+                fontSize: '0.74rem',
+                fontWeight: 800,
+                color: '#92400E',
+                backgroundColor: '#FEF3C7',
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-pill)',
+                whiteSpace: 'nowrap'
+              }}>
+                {restaurant.mustTryDish.cost}
+              </span>
+            </div>
+            <h4 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '1rem',
+              color: 'var(--color-navy)',
+              margin: '2px 0 3px',
+              lineHeight: 1.25
+            }}>
+              {restaurant.mustTryDish.name}
+            </h4>
+            <p style={{
+              fontSize: '0.76rem',
+              color: 'var(--color-text-muted)',
+              lineHeight: 1.35,
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden'
+            }}>
+              {restaurant.mustTryDish.note}
+            </p>
+          </div>
         </div>
       )}
 

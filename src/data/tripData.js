@@ -304,6 +304,7 @@ export const CITIES = {
         vegStatus: "Fully Vegetarian",
         jainFriendly: "Customizable upon request (no onion/garlic dishes available)",
         price: "$$",
+        avgCostPerPerson: "~HK$50–80 (₹530–850)",
         address: "Wo Che Estate Market & Commercial Complex, Sha Tin",
         lat: 22.3888,
         lng: 114.1950,
@@ -324,6 +325,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly & Vegan Options",
         jainFriendly: "Dishes can be prepared without root vegetables / garlic on request",
         price: "$$",
+        avgCostPerPerson: "~HK$40–60 (₹420–640)",
         address: "Near City One Shatin, Sha Tin",
         lat: 22.3850,
         lng: 114.2040,
@@ -344,6 +346,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly",
         jainFriendly: "Chef can cater tailored vegetarian meals upon advance notice at reception",
         price: "$$$",
+        avgCostPerPerson: "~HK$220–380 (₹2,300–4,000)",
         address: "2/F, Courtyard by Marriott Hong Kong Sha Tin",
         lat: 22.3892,
         lng: 114.2045,
@@ -364,6 +367,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly & Halal",
         jainFriendly: "Jain options available (Dal, Paneer without onion/garlic on request)",
         price: "$$",
+        avgCostPerPerson: "~HK$100–180 (₹1,050–1,900)",
         address: "G/F, 8 Tung Chung Rd, Tung Chung, Lantau Island",
         lat: 22.2850,
         lng: 113.9390,
@@ -384,6 +388,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly",
         jainFriendly: "Vegetarian pizzas and salads without onion/garlic on request",
         price: "$$",
+        avgCostPerPerson: "~HK$120–200 (₹1,270–2,120)",
         address: "Unit G30, G/F, Citygate Outlets, Tung Chung",
         lat: 22.2897,
         lng: 113.9407,
@@ -404,6 +409,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly",
         jainFriendly: "Vegetarian pasta and noodles tailored upon request",
         price: "$$",
+        avgCostPerPerson: "~HK$110–220 (₹1,160–2,330)",
         address: "G/F, Four Points by Sheraton Hong Kong, Tung Chung",
         lat: 22.2963,
         lng: 113.9427,
@@ -411,8 +417,298 @@ export const CITIES = {
           hotel1: { dist: "~33 km", time: "~35 min", note: "In Tung Chung" },
           hotel2: { dist: "0 m", time: "Inside hotel", note: "Right inside your hotel lobby!" }
         },
-        whyWePicked: "Relaxed dining inside Four Points serving comfort food, Asian noodle bowls, and fresh breakfast.",
-        travellerTip: "Quickest choice on arrival evening or after returning late from Disneyland."
+        whyWePicked: "Convenient hotel buffet & a la carte dining with fresh noodles, vegetable curries, and breakfast staples without leaving Four Points.",
+        travellerTip: "Notify the chef about pure vegetarian requirements; they prepare fresh stir-fried noodles and vegetable broths on request."
+      },
+      {
+        id: "res_bakehouse",
+        name: "Bakehouse",
+        chineseName: "Bakehouse 烘焙麵包店",
+        area: "Tsim Sha Tsui / Central",
+        category: "Bakery & Cafe",
+        cuisine: "🥐 Artisanal Sourdough & Pastry",
+        vegStatus: "Eggetarian (Pure butter & egg, strictly zero lard)",
+        jainFriendly: "Egg tarts & sourdough bread without alliums",
+        price: "$",
+        avgCostPerPerson: "~HK$35–65 (₹370–690)",
+        address: "44 Hankow Rd, Tsim Sha Tsui, Hong Kong",
+        lat: 22.2980,
+        lng: 114.1712,
+        mustTryDish: {
+          id: "dish_bakehouse_tart",
+          name: "Sourdough Egg Tart (脆皮酸種蛋撻)",
+          diet: "🥚 Eggetarian",
+          cost: "~HK$12.50 (₹130)",
+          image: "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+          note: "Over 50M views on social media! Caramelized, shatteringly crisp sourdough pastry filled with warm wobbly vanilla egg custard."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~14 km", time: "~20 min MTR / taxi", note: "Near TST MTR" },
+          hotel2: { dist: "~31 km", time: "~35 min MTR", note: "Direct via Tung Chung line to Kowloon" }
+        },
+        whyWePicked: "The #1 viral bakery in Hong Kong. Founded by former Four Seasons pastry chef Grégoire Michaud.",
+        travellerTip: "Arrive around 10:30 AM or 2:00 PM for hot fresh batches out of the oven. Queues move quickly!"
+      },
+      {
+        id: "res_kam_wah",
+        name: "Kam Wah Cafe & Bakery",
+        chineseName: "金華冰廳",
+        area: "Mong Kok",
+        category: "Cafe / Bakery",
+        cuisine: "☕ Classic Hong Kong Cha Chaan Teng",
+        vegStatus: "Eggetarian / Vegetarian friendly",
+        jainFriendly: "Warm pineapple bun with butter (egg wash on crust, no alliums)",
+        price: "$",
+        avgCostPerPerson: "~HK$40–65 (₹420–690)",
+        address: "47 Bute St, Mong Kok, Kowloon",
+        lat: 22.3218,
+        lng: 114.1690,
+        mustTryDish: {
+          id: "dish_kam_wah_bolo",
+          name: "Pineapple Bun with Butter (菠蘿油)",
+          diet: "🥚 Eggetarian",
+          cost: "~HK$14–18 (₹150–190)",
+          image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+          note: "Crowned #1 Pineapple Bun in Hong Kong. Piping hot fluffy bun with sweet crackly crust and a thick melting slab of cold Dutch butter inside."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~11 km", time: "~16 min MTR", note: "East Rail line to Mong Kok East" },
+          hotel2: { dist: "~28 km", time: "~30 min MTR", note: "Tung Chung line to Lai King -> Tsuen Wan line to Prince Edward" }
+        },
+        whyWePicked: "An authentic local institution since 1973. Extremely affordable comfort food beloved by generations.",
+        travellerTip: "Pair with an authentic Hong Kong Iced Milk Tea for the legendary local afternoon tea experience."
+      },
+      {
+        id: "res_mammy_pancake",
+        name: "Mammy Pancake",
+        chineseName: "媽咪雞蛋仔",
+        area: "Tsim Sha Tsui",
+        category: "Street Food",
+        cuisine: "🧇 Michelin-Recommended Street Snacks",
+        vegStatus: "Eggetarian",
+        jainFriendly: "Original and chocolate chip bubble waffles are egg-based, free of alliums",
+        price: "$",
+        avgCostPerPerson: "~HK$25–45 (₹260–480)",
+        address: "Carnarvon Mansion, 8-12 Carnarvon Rd, Tsim Sha Tsui",
+        lat: 22.2995,
+        lng: 114.1750,
+        mustTryDish: {
+          id: "dish_mammy_waffle",
+          name: "Crispy Egg Bubble Waffle (雞蛋仔)",
+          diet: "🥚 Eggetarian",
+          cost: "~HK$24–32 (₹250–340)",
+          image: "https://images.unsplash.com/photo-1568051243851-f9b136146e97?auto=format&fit=crop&w=800&q=80",
+          note: "Recognized in the Michelin Street Food Guide. Golden honeycomb bubbles with crispy edges and soft, aromatic sponge cake interiors."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~14 km", time: "~20 min", note: "In bustling Tsim Sha Tsui" },
+          hotel2: { dist: "~31 km", time: "~35 min", note: "In bustling Tsim Sha Tsui" }
+        },
+        whyWePicked: "Freshly made to order in small batches. High hygiene standards and irresistible aroma.",
+        travellerTip: "Eat immediately while hot and crispy! Original, Matcha, and Chocolate Chip are family favorites."
+      },
+      {
+        id: "res_lockcha_tea",
+        name: "LockCha Tea House",
+        chineseName: "樂茶軒",
+        area: "Tai Kwun, Central",
+        category: "Vegetarian",
+        cuisine: "🥟 Traditional Vegetarian Dim Sum & Teas",
+        vegStatus: "100% Pure Vegetarian & Vegan",
+        jainFriendly: "Extensive Jain-safe dim sum (no root vegetables / garlic upon notice)",
+        price: "$$",
+        avgCostPerPerson: "~HK$120–180 (₹1,270–1,900)",
+        address: "G06-07, Block 01, Tai Kwun, 10 Hollywood Rd, Central",
+        lat: 22.2815,
+        lng: 114.1540,
+        mustTryDish: {
+          id: "dish_lockcha_truffle",
+          name: "Truffle Wild Mushroom Dumplings (黑松露野菌餃)",
+          diet: "🥬 100% Pure Veg",
+          cost: "~HK$42–48 (₹440–500)",
+          image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=800&q=80",
+          note: "Translucent crystal wrappers stuffed with fragrant wild forest mushrooms and aromatic black truffle essence."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~18 km", time: "~25 min MTR", note: "Admiralty / Central" },
+          hotel2: { dist: "~33 km", time: "~32 min MTR", note: "Direct Tung Chung Line to Hong Kong Station" }
+        },
+        whyWePicked: "The gold standard for vegetarian Cantonese dim sum inside the historic Tai Kwun police station heritage courtyard.",
+        travellerTip: "Pair with an artisan Jasmine or Oolong brew. Booking a table in advance is recommended during peak lunchtime."
+      },
+      {
+        id: "res_veggie_kingdom",
+        name: "Veggie Kingdom",
+        chineseName: "素宮",
+        area: "Tsim Sha Tsui",
+        category: "Vegetarian",
+        cuisine: "🥢 Plant-Based Cantonese Dim Sum",
+        vegStatus: "100% Pure Vegetarian & Vegan",
+        jainFriendly: "Dishes clearly labeled; onion/garlic-free dim sum options available",
+        price: "$$",
+        avgCostPerPerson: "~HK$130–220 (₹1,380–2,330)",
+        address: "7/F, VIP Commercial Centre, 120 Canton Rd, Tsim Sha Tsui",
+        lat: 22.2990,
+        lng: 114.1700,
+        mustTryDish: {
+          id: "dish_veggie_cheungfun",
+          name: "Crispy Vegetarian Rice Noodle Roll (脆皮素腸粉)",
+          diet: "🥬 100% Pure Veg",
+          cost: "~HK$38–45 (₹400–470)",
+          image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+          note: "Velvety steamed rice rolls wrapping a golden crispy tofu roll stuffed with crunchy carrots and wood-ear mushrooms."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~14 km", time: "~20 min", note: "Near Harbour City TST" },
+          hotel2: { dist: "~30 km", time: "~32 min", note: "Near Harbour City TST" }
+        },
+        whyWePicked: "Masterful plant-based Cantonese cooking that delights both strict vegetarians and curious food lovers.",
+        travellerTip: "The vegetarian BBQ Char Siu buns and vegetarian shark-fin-style soup are legendary."
+      },
+      {
+        id: "res_australia_dairy",
+        name: "Australia Dairy Company",
+        chineseName: "澳洲牛奶公司",
+        area: "Jordan",
+        category: "Cafe",
+        cuisine: "🍳 Fast-Paced Hong Kong Diner",
+        vegStatus: "Eggetarian friendly",
+        jainFriendly: "Butter toast, steamed egg pudding & scrambled eggs without meat",
+        price: "$",
+        avgCostPerPerson: "~HK$40–60 (₹420–640)",
+        address: "47 Parkes St, Jordan, Kowloon",
+        lat: 22.3045,
+        lng: 114.1705,
+        mustTryDish: {
+          id: "dish_adc_toast",
+          name: "Velvety Scrambled Egg Toast (番茄炒蛋多士)",
+          diet: "🥚 Eggetarian",
+          cost: "~HK$30–38 (₹310–400)",
+          image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+          note: "Folded with cream and butter into an impossibly soft, pillow-textured scrambled egg blanket served between thick toasted milk bread."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~13 km", time: "~18 min MTR", note: "Jordan MTR Exit C2" },
+          hotel2: { dist: "~30 km", time: "~33 min MTR", note: "Jordan MTR Exit C2" }
+        },
+        whyWePicked: "A cultural rite of passage in Hong Kong! Famous for supersonic service, lightning-fast table turnover, and unforgettable eggs.",
+        travellerTip: "Queue looks long but moves in under 8 minutes. Know what you want to order before sitting down!"
+      },
+      {
+        id: "res_sangeetha_hk",
+        name: "Sangeetha Vegetarian Restaurant",
+        chineseName: "三吉印度素食",
+        area: "Tsim Sha Tsui East",
+        category: "Indian",
+        cuisine: "🇮🇳 Authentic South & North Indian Vegetarian",
+        vegStatus: "100% Pure Indian Vegetarian",
+        jainFriendly: "Comprehensive Jain menu (Jain Dosas, Paneer, Dals without onion/garlic)",
+        price: "$$",
+        avgCostPerPerson: "~HK$90–150 (₹950–1,590)",
+        address: "UG 1-5 & 31, Wing On Plaza, 62 Mody Rd, TST East",
+        lat: 22.2975,
+        lng: 114.1770,
+        mustTryDish: {
+          id: "dish_sangeetha_dosa",
+          name: "Ghee Roast Masala Dosa & Sambar (印度多薩煎餅)",
+          diet: "🥬 100% Pure Indian Veg",
+          cost: "~HK$55–72 (₹580–750)",
+          image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
+          note: "Giant paper-thin fermented rice crepe crisped in pure ghee, stuffed with spiced potato masala, served with 3 fresh chutneys and piping hot sambar."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~14 km", time: "~20 min", note: "Wing On Plaza near East TST MTR" },
+          hotel2: { dist: "~31 km", time: "~35 min", note: "Direct via Kowloon Station" }
+        },
+        whyWePicked: "The highest-rated pure Indian vegetarian kitchen in Hong Kong with consistent authentic South Indian flavors.",
+        travellerTip: "Their Filter Coffee and Mini Tiffin (mini idli, vada, dosa combo) are perfect for afternoon snacks."
+      },
+      {
+        id: "res_treehouse",
+        name: "Treehouse",
+        chineseName: "Treehouse 環保純素餐廳",
+        area: "Central",
+        category: "Eco-Cafe",
+        cuisine: "🌱 Sustainable Plant-Based Fast Casual",
+        vegStatus: "100% Eco-Friendly & Plant-Based (Vegan)",
+        jainFriendly: "Build-your-own pita wraps with spiced falafel, tahini, and fresh greens (allium-free options)",
+        price: "$$",
+        avgCostPerPerson: "~HK$85–130 (₹900–1,380)",
+        address: "Shop 1, Ground Floor, H Code, 45 Pottinger St, Central",
+        lat: 22.2828,
+        lng: 114.1535,
+        mustTryDish: {
+          id: "dish_treehouse_pita",
+          name: "Sourdough Pita Pocket & Spiced Falafel (酸種麵包沙律包)",
+          diet: "🥬 100% Eco / Vegan",
+          cost: "~HK$68–85 (₹710–890)",
+          image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+          note: "Warm sourdough flatbread filled with herb-crusted crispy falafels, roasted sweet pumpkin, pickled red cabbage, and rich creamy tahini."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~18 km", time: "~25 min", note: "In trendy Soho/Central" },
+          hotel2: { dist: "~33 km", time: "~30 min", note: "Close to Hong Kong Station" }
+        },
+        whyWePicked: "Certified zero-waste, eco-conscious culinary oasis offering nourishing, fresh food in modern timber surroundings.",
+        travellerTip: "Try their kombucha or cold-pressed juices along with the sourdough flatbread."
+      },
+      {
+        id: "res_kung_wo",
+        name: "Kung Wo Beancurd Factory",
+        chineseName: "公和荳品廠",
+        area: "Sham Shui Po",
+        category: "Heritage Dessert",
+        cuisine: "🍮 Michelin Bib Gourmand Artisan Tofu",
+        vegStatus: "100% Pure Vegetarian & Vegan",
+        jainFriendly: "Fresh soybean pudding with raw sugar cane (completely pure & allium-free)",
+        price: "$",
+        avgCostPerPerson: "~HK$20–35 (₹210–370)",
+        address: "118 Pei Ho St, Sham Shui Po, Kowloon",
+        lat: 22.3308,
+        lng: 114.1625,
+        mustTryDish: {
+          id: "dish_kung_wo_tofu",
+          name: "Silky Beancurd Pudding (百年豆腐花)",
+          diet: "🥬 100% Pure Veg",
+          cost: "~HK$14–18 (₹150–190)",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+          note: "Century-old recipe! Silky, melt-in-the-mouth warm soybean curd sprinkled with raw yellow cane sugar."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~10 km", time: "~15 min MTR", note: "Near Sham Shui Po MTR Exit B2" },
+          hotel2: { dist: "~26 km", time: "~28 min MTR", note: "Short ride from Tung Chung line transfer" }
+        },
+        whyWePicked: "Operating since 1893, grinding organic Canadian non-GMO soybeans using traditional stone mills.",
+        travellerTip: "Add a splash of ginger syrup or golden sugar. Both hot and cold versions are refreshing."
+      },
+      {
+        id: "res_honeymoon_dessert",
+        name: "Honeymoon Dessert",
+        chineseName: "滿記甜品",
+        area: "Tung Chung / Mong Kok",
+        category: "Dessert Cafe",
+        cuisine: "🥭 Classic Hong Kong Sweet Soups & Fruits",
+        vegStatus: "100% Pure Vegetarian",
+        jainFriendly: "Fruit sago, coconut bowls & mango desserts are completely pure & allium-free",
+        price: "$",
+        avgCostPerPerson: "~HK$35–60 (₹370–640)",
+        address: "Shop 247, Citygate Outlets, Tung Chung (also in Langham Place, Mong Kok)",
+        lat: 22.2897,
+        lng: 113.9407,
+        mustTryDish: {
+          id: "dish_honeymoon_mango",
+          name: "Mango Pomelo Sago Dessert (楊枝甘露)",
+          diet: "🥬 100% Pure Veg",
+          cost: "~HK$34–42 (₹350–440)",
+          image: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+          note: "Sweet fragrant mango nectar blended with coconut milk, loaded with chewy translucent sago pearls and juicy ruby pomelo sacs."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~32 km", time: "~35 min", note: "In Citygate Outlets (Tung Chung)" },
+          hotel2: { dist: "~0.9 km", time: "~3 min walk", note: "Right across from Four Points Tung Chung at Citygate!" }
+        },
+        whyWePicked: "The most famous dessert chain in Hong Kong. Super convenient location right beside Four Points hotel.",
+        travellerTip: "Try the Durian or Mango Pancake (thin crepe with fresh fruit and whipped cream inside)!"
       }
     ],
     addsOn: []
@@ -623,6 +919,7 @@ export const CITIES = {
         vegStatus: "Fully Vegetarian",
         jainFriendly: "Dishes can be prepared without root vegetables / garlic on request",
         price: "$$",
+        avgCostPerPerson: "~50–80 RMB (₹580–940)",
         address: "Luohu District, near Dongmen, Shenzhen",
         lat: 22.5495,
         lng: 114.1220,
@@ -643,6 +940,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly & Halal",
         jainFriendly: "Extensive Jain menu upon request (Paneer, Chana, Dal prepared without onion/garlic)",
         price: "$$",
+        avgCostPerPerson: "~70–110 RMB (₹820–1,290)",
         address: "Near Guomao / Luohu Station, Shenzhen",
         lat: 22.5380,
         lng: 114.1170,
@@ -663,6 +961,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly",
         jainFriendly: "Fruit, bread, steamed corn/sweet potato, vegetarian congee available",
         price: "$",
+        avgCostPerPerson: "~30–50 RMB (₹350–590)",
         address: "Holiday Inn Express Shenzhen Dongmen lobby",
         lat: 22.5488,
         lng: 114.1205,
@@ -683,6 +982,7 @@ export const CITIES = {
         vegStatus: "Fully Vegetarian",
         jainFriendly: "Pure plant broths (tea-based) with mushrooms and greens, no onion/garlic base",
         price: "$$",
+        avgCostPerPerson: "~80–120 RMB (₹940–1,400)",
         address: "Near Buji / Dafen Village area, Shenzhen",
         lat: 22.6050,
         lng: 114.1250,
@@ -703,6 +1003,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly",
         jainFriendly: "Stir-fried vegetables and tofu dishes can be requested without alliums",
         price: "$$$",
+        avgCostPerPerson: "~90–160 RMB (₹1,050–1,880)",
         address: "2/F, Century Kingdom Hotel, Baoli Rd, Buji",
         lat: 22.6074,
         lng: 114.1287,
@@ -712,6 +1013,64 @@ export const CITIES = {
         },
         whyWePicked: "Spacious fine dining with private booths, perfect for a peaceful family dinner inside Century Kingdom.",
         travellerTip: "Ask for the vegetarian set menu or custom stir-fried seasonal greens with garlic-free mushroom sauce."
+      },
+      {
+        id: "sz_res_bombay_adda",
+        name: "Bombay Adda",
+        chineseName: "孟買驛站印度餐廳",
+        area: "Luohu District",
+        category: "Indian",
+        cuisine: "🇮🇳 North Indian Street Food & Curries",
+        vegStatus: "100% Pure Indian Vegetarian friendly",
+        jainFriendly: "Paneer, Dal Tadka, and Jeera Rice can be prepared without onion/garlic on request",
+        price: "$$",
+        avgCostPerPerson: "~50–80 RMB (₹580–940)",
+        address: "Near Tianbei Station, Luohu District, Shenzhen",
+        lat: 22.5670,
+        lng: 114.1250,
+        mustTryDish: {
+          id: "dish_bombay_adda_curry",
+          name: "Paneer Butter Masala & Garlic Naan (北印香料芝士咖哩)",
+          diet: "🥬 100% Pure Indian Veg",
+          cost: "~45–65 RMB (₹520–750)",
+          image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80",
+          note: "Rich creamy tomato gravy with soft cottage cheese cubes, served with tandoori garlic naan fresh from the clay oven."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~2.5 km", time: "~7 min taxi / short metro", note: "Very close to Holiday Inn Express Dongmen!" },
+          hotel2: { dist: "~5.5 km", time: "~12 min taxi", note: "Straight ride from Century Kingdom" }
+        },
+        whyWePicked: "Casual, warm, and budget-conscious North Indian kitchen popular with travelers seeking comforting familiar flavors in Luohu.",
+        travellerTip: "Ask for the Dal Makhani, Paneer Tikka, and hot masala chai."
+      },
+      {
+        id: "sz_res_bodhi_veg",
+        name: "Bodhi Vegetarian Restaurant",
+        chineseName: "菩提素食餐廳",
+        area: "Luohu District",
+        category: "Vegetarian",
+        cuisine: "🌱 Traditional Buddhist Chinese Vegetarian",
+        vegStatus: "100% Pure Buddhist Vegetarian (No meat, no lard)",
+        jainFriendly: "Strict Buddhist principles (completely allium-free, no onion/garlic)",
+        price: "$",
+        avgCostPerPerson: "~35–55 RMB (₹410–640)",
+        address: "Shennan East Rd, Luohu District, Shenzhen",
+        lat: 22.5450,
+        lng: 114.1190,
+        mustTryDish: {
+          id: "dish_bodhi_mushrooms",
+          name: "Braised Wild Mushroom & Lotus Root Claypot (百味野菌蓮藕煲)",
+          diet: "🥬 100% Pure Buddhist Veg",
+          cost: "~35–50 RMB (₹400–580)",
+          image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=800&q=80",
+          note: "Slow-simmered earthen pot brimming with crunchy local lotus root, king oyster mushrooms, and sweet chestnuts in light herb sauce."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~1.2 km", time: "~4 min taxi / 12 min walk", note: "Minutes from Holiday Inn Dongmen!" },
+          hotel2: { dist: "~7.5 km", time: "~16 min taxi", note: "Accessible via Metro Line 3" }
+        },
+        whyWePicked: "A tranquil dining sanctuary in Luohu offering wholesome, affordable Buddhist vegetarian set meals and dim sum.",
+        travellerTip: "Their vegetarian dumplings and pumpkin congee are light, comforting, and great for dinner."
       }
     ],
     addsOn: []
@@ -943,6 +1302,7 @@ export const CITIES = {
         vegStatus: "100% Vegetarian & Vegan Friendly",
         jainFriendly: "Customizable salads, noodle bowls, and juices without onion/garlic",
         price: "$$",
+        avgCostPerPerson: "~60–95 MOP (₹620–990)",
         address: "Taipa Village, Macau",
         lat: 22.1540,
         lng: 113.5580,
@@ -963,6 +1323,7 @@ export const CITIES = {
         vegStatus: "Fully Vegetarian",
         jainFriendly: "Dishes marked and cooked without alliums on request",
         price: "$$",
+        avgCostPerPerson: "~50–90 MOP (₹520–940)",
         address: "Near Historic Centre of Macau",
         lat: 22.1960,
         lng: 113.5420,
@@ -983,6 +1344,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly",
         jainFriendly: "Avocado toast, pastries, and smoothies can be tailored",
         price: "$$",
+        avgCostPerPerson: "~75–130 MOP (₹780–1,360)",
         address: "Shoppes at Venetian, Cotai, Macau",
         lat: 22.1483,
         lng: 113.5606,
@@ -1003,6 +1365,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly options",
         jainFriendly: "Vegetarian Portuguese vegetable stews & salads can be requested",
         price: "$$$",
+        avgCostPerPerson: "~150–250 MOP (₹1,560–2,600)",
         address: "5 Rua dos Mercadores, Taipa Village, Macau",
         lat: 22.1542,
         lng: 113.5570,
@@ -1023,6 +1386,7 @@ export const CITIES = {
         vegStatus: "Vegetarian-friendly & Vegan Options",
         jainFriendly: "Fresh salads and paninis customizable",
         price: "$$",
+        avgCostPerPerson: "~70–110 MOP (₹730–1,150)",
         address: "Rua de Santo António, Macau",
         lat: 22.1990,
         lng: 113.5395,
@@ -1032,6 +1396,35 @@ export const CITIES = {
         },
         whyWePicked: "Charming independent cafe famous for welcoming hospitality, vegetarian wraps, and iced teas near St. Anthony Church.",
         travellerTip: "Quiet oasis to rest your feet away from the bustling crowds of St. Paul's."
+      },
+      {
+        id: "res_lord_stow",
+        name: "Lord Stow's Bakery",
+        chineseName: "安德魯餅店",
+        area: "Taipa Village & The Venetian",
+        category: "Bakery & Cafe",
+        cuisine: "🥧 Legendary Portuguese Egg Tarts",
+        vegStatus: "Eggetarian (Pure butter & egg, strictly zero lard)",
+        jainFriendly: "Fresh Portuguese egg tarts (egg custard, no meat or alliums)",
+        price: "$",
+        avgCostPerPerson: "~20–45 MOP (₹210–470)",
+        address: "14 Rua do Cunha, Taipa Village & Grand Canal Shoppes, The Venetian Macao",
+        lat: 22.1537,
+        lng: 113.5562,
+        mustTryDish: {
+          id: "dish_lord_stow_tart",
+          name: "Original Portuguese Egg Tart (安德魯葡撻)",
+          diet: "🥚 Eggetarian",
+          cost: "~13 MOP (₹135)",
+          image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+          note: "The birthplace of the Portuguese Egg Tart in Asia! Served blistering hot with caramelized custard swirls and butter-crisp pastry."
+        },
+        hotelDistances: {
+          hotel1: { dist: "~0.9 km", time: "~10 min walk", note: "Inside The Venetian / Taipa Village right beside hotel!" },
+          hotel2: { dist: "~1.3 km", time: "~15 min walk", note: "Near The Parisian & Londoner" }
+        },
+        whyWePicked: "An absolute bucket-list taste of Macau. Freshly baked all day with an intoxicating vanilla-caramel aroma.",
+        travellerTip: "Grab a box of 6 warm tarts to share with the family while strolling along Taipa Village or the Venetian canals."
       }
     ],
     addsOn: []

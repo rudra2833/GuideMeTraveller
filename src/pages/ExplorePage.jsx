@@ -4,24 +4,28 @@ import HotelSwitcher from '../components/city/HotelSwitcher';
 import PlaceCard from '../components/places/PlaceCard';
 import RestaurantCard from '../components/food/RestaurantCard';
 import CustomPlaceCard from '../components/places/CustomPlaceCard';
+import FoodTryCard from '../components/food/FoodTryCard';
 import AddPlaceModal from '../components/places/AddPlaceModal';
 import { CITIES } from '../data/tripData';
 import { useHotelStore } from '../hooks/useHotelStore';
 import { useFavorites } from '../hooks/useFavorites';
 import { useCustomPlaces } from '../hooks/useCustomPlaces';
 import { useVisitedPlaces } from '../hooks/useVisitedPlaces';
+import { useFoodTry } from '../hooks/useFoodTry';
 import { calculateDistanceKm } from '../utils/distance';
-import { Sparkles, Utensils, Compass, Plus, PlusCircle, ArrowUpDown, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Utensils, Compass, Plus, PlusCircle, ArrowUpDown, CheckCircle2, Flame } from 'lucide-react';
 
 export default function ExplorePage() {
   const [selectedCityKey, setSelectedCityKey] = useState('hongKong');
-  const [selectedFilter, setSelectedFilter] = useState('all'); // 'all', 'official', 'optional', 'food', 'addsOn'
+  const [selectedFilter, setSelectedFilter] = useState('official'); // 'official', 'optional', 'food', 'foodTry', 'addsOn'
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
   
   const { selectedHotels, setHotel, getActiveHotel } = useHotelStore();
   const { isFavorite, toggleFavorite } = useFavorites();
   const { addCustomPlace, removeCustomPlace, getCustomPlacesForCity } = useCustomPlaces();
   const { visitedIds, isVisited, toggleVisited } = useVisitedPlaces();
+  const { triedIds, isTried, toggleTried } = useFoodTry();
 
   const city = CITIES[selectedCityKey];
   const activeHotel = getActiveHotel(selectedCityKey);
@@ -43,6 +47,28 @@ export default function ExplorePage() {
       return aDone - bDone;
     });
   }, [prebakedAddsOn, customPlacesForCity, visitedIds]);
+
+  // FoodTry dishes extracted from restaurants for this city
+  const allFoodTry = useMemo(() => {
+    const list = restaurants
+      .filter((r) => r.mustTryDish)
+      .map((r) => ({
+        dish: r.mustTryDish,
+        restaurant: r
+      }));
+
+    // Sort: Untried on top, Tried on bottom; within that, sort by proximity to hotel
+    return list.sort((a, b) => {
+      const aDone = isTried(a.dish.id) ? 1 : 0;
+      const bDone = isTried(b.dish.id) ? 1 : 0;
+      if (aDone !== bDone) return aDone - bDone;
+
+      const distA = calculateDistanceKm(activeHotel?.lat, activeHotel?.lng, a.restaurant.lat, a.restaurant.lng);
+      const distB = calculateDistanceKm(activeHotel?.lat, activeHotel?.lng, b.restaurant.lat, b.restaurant.lng);
+      return distA - distB;
+    });
+  }, [restaurants, activeHotel, triedIds]);
+
 
 
   // Distance-based sorting: Closest to active hotel first!
@@ -170,21 +196,6 @@ export default function ExplorePage() {
           marginBottom: '18px',
           WebkitOverflowScrolling: 'touch'
         }}>
-          <button
-            onClick={() => setSelectedFilter('all')}
-            style={{
-              padding: '6px 14px',
-              borderRadius: 'var(--radius-pill)',
-              fontSize: '0.78rem',
-              fontWeight: 700,
-              whiteSpace: 'nowrap',
-              backgroundColor: selectedFilter === 'all' ? 'var(--color-navy)' : '#FFFFFF',
-              color: selectedFilter === 'all' ? '#FFF8F1' : 'var(--color-navy)',
-              border: '1px solid var(--color-border)'
-            }}
-          >
-            All In {city.name}
-          </button>
 
           <button
             onClick={() => setSelectedFilter('official')}
@@ -235,6 +246,22 @@ export default function ExplorePage() {
           </button>
 
           <button
+            onClick={() => setSelectedFilter('foodTry')}
+            style={{
+              padding: '6px 14px',
+              borderRadius: 'var(--radius-pill)',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              whiteSpace: 'nowrap',
+              backgroundColor: selectedFilter === 'foodTry' ? '#D97706' : '#FFFFFF',
+              color: selectedFilter === 'foodTry' ? '#FFFFFF' : '#D97706',
+              border: '1px solid #F59E0B'
+            }}
+          >
+            🥟 FoodTry ({allFoodTry.length})
+          </button>
+
+          <button
             onClick={() => setSelectedFilter('addsOn')}
             style={{
               padding: '6px 14px',
@@ -251,8 +278,86 @@ export default function ExplorePage() {
           </button>
         </div>
 
+        {/* Section: FoodTry (Iconic Dishes to Taste with Checklist) */}
+        {selectedFilter === 'foodTry' && allFoodTry.length > 0 && (
+          <div style={{ marginBottom: '32px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+              <div>
+                <h3 style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.25rem',
+                  color: 'var(--color-navy)'
+                }}>
+                  🥟 FoodTry • Iconic Dishes to Taste
+                </h3>
+                <p style={{ fontSize: '0.76rem', color: '#B5670D', fontWeight: 700 }}>
+                  Must-eat dishes for Vegetarians & Eggetarians • Tap "Tried" to check off ({city.name})
+                </p>
+              </div>
+            </div>
+
+            {/* Untried Dishes First */}
+            {allFoodTry.filter((item) => !isTried(item.dish.id)).map((item) => (
+              <FoodTryCard
+                key={item.dish.id}
+                dish={item.dish}
+                restaurant={item.restaurant}
+                activeHotel={activeHotel}
+                isTried={false}
+                onToggleTried={toggleTried}
+              />
+            ))}
+
+            {/* Tried Dishes at the Bottom */}
+            {allFoodTry.filter((item) => isTried(item.dish.id)).length > 0 && (
+              <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px dashed var(--color-border)' }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  color: 'var(--color-text-muted)',
+                  marginBottom: '12px'
+                }}>
+                  <CheckCircle2 size={15} color="#2E7D32" />
+                  <span>Tasted & Checked Off ({allFoodTry.filter((item) => isTried(item.dish.id)).length})</span>
+                </div>
+
+                {allFoodTry.filter((item) => isTried(item.dish.id)).map((item) => (
+                  <FoodTryCard
+                    key={item.dish.id}
+                    dish={item.dish}
+                    restaurant={item.restaurant}
+                    activeHotel={activeHotel}
+                    isTried={true}
+                    onToggleTried={toggleTried}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Empty state when viewing FoodTry tab and list is empty */}
+        {selectedFilter === 'foodTry' && allFoodTry.length === 0 && (
+          <div style={{
+            textAlign: 'center',
+            padding: '36px 20px',
+            backgroundColor: '#FFFFFF',
+            borderRadius: 'var(--radius-md)',
+            border: '2px dashed var(--color-border)',
+            marginBottom: '32px'
+          }}>
+            <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', color: 'var(--color-navy)', marginBottom: '6px' }}>
+              No dishes listed for {city.name} yet
+            </h4>
+          </div>
+        )}
+
+
         {/* Section: AddsOn (Manual / Local Recommendations with To-Do Checklist) */}
-        {(selectedFilter === 'all' || selectedFilter === 'addsOn') && allAddsOn.length > 0 && (
+        {selectedFilter === 'addsOn' && allAddsOn.length > 0 && (
           <div style={{ marginBottom: '32px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
               <div>
@@ -384,7 +489,7 @@ export default function ExplorePage() {
         )}
 
         {/* Section 1: Official Itinerary Places */}
-        {(selectedFilter === 'all' || selectedFilter === 'official') && (
+        {selectedFilter === 'official' && (
           <div style={{ marginBottom: '32px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
               <div>
@@ -414,7 +519,7 @@ export default function ExplorePage() {
         )}
 
         {/* Section 2: Optional Discovery / Free Day Ideas (Sorted by distance!) */}
-        {(selectedFilter === 'all' || selectedFilter === 'optional') && (
+        {selectedFilter === 'optional' && (
           <div style={{ marginBottom: '32px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
               <div>
@@ -444,7 +549,7 @@ export default function ExplorePage() {
         )}
 
         {/* Section 3: Food & Restaurants Near Active Hotel (Sorted by distance!) */}
-        {(selectedFilter === 'all' || selectedFilter === 'food') && (
+        {selectedFilter === 'food' && (
           <div style={{ marginBottom: '28px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
               <div>

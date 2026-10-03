@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { db, ref, onValue, set } from '../services/firebase';
 
 const STORAGE_KEY = 'guidemetraveller_notes';
 
@@ -13,7 +14,7 @@ Family wish list:
 • Watch Disney Momentous castle fireworks`;
 
 export function useNotes() {
-  const [notes, setNotes] = useState(() => {
+  const [notes, setNotesState] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       return saved !== null ? saved : defaultNotes;
@@ -22,13 +23,53 @@ export function useNotes() {
     }
   });
 
+  const isLocalEdit = useRef(false);
+
+  // Real-time listener for shared notes from Firebase
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, notes);
+      const notesRef = ref(db, 'sharedNotes');
+      const unsubscribe = onValue(notesRef, (snapshot) => {
+        const val = snapshot.val();
+        if (typeof val === 'string' && !isLocalEdit.current) {
+          setNotesState(val);
+          try {
+            localStorage.setItem(STORAGE_KEY, val);
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }, (err) => {
+        console.warn('Firebase notes sync warning:', err.message);
+      });
+
+      return () => unsubscribe();
     } catch (e) {
-      console.error('Failed to save notes to localStorage', e);
+      console.warn('Firebase unavailable, using local mode:', e);
     }
-  }, [notes]);
+  }, []);
+
+  const setNotes = (newContent) => {
+    isLocalEdit.current = true;
+    setNotesState(newContent);
+    try {
+      localStorage.setItem(STORAGE_KEY, newContent);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // Debounce or sync to Firebase
+    if (window._notesTimeout) clearTimeout(window._notesTimeout);
+    window._notesTimeout = setTimeout(async () => {
+      try {
+        await set(ref(db, 'sharedNotes'), newContent);
+      } catch (err) {
+        console.error('Failed to sync notes to Firebase:', err);
+      } finally {
+        isLocalEdit.current = false;
+      }
+    }, 800);
+  };
 
   return {
     notes,
